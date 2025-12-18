@@ -25,7 +25,8 @@ export default function AuthPage() {
         setLoading(true);
         setError('');
 
-        const endpoint = isLogin ? 'http://localhost:5000/api/auth/login' : 'http://localhost:5000/api/auth/signup';
+        const apiUrl = import.meta.env.VITE_API_URL;
+        const endpoint = isLogin ? `${apiUrl}/api/auth/login` : `${apiUrl}/api/auth/signup`;
         const body = isLogin ? { email, password } : { name, email, password };
 
         try {
